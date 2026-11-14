@@ -61,8 +61,11 @@ if (CONTACT_EMAIL && !/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(CONTACT_EMAI
 const LEAD_CAPTURE = env('LEAD_CAPTURE', 'off').toLowerCase();
 if (!['on', 'off'].includes(LEAD_CAPTURE)) errors.push('LEAD_CAPTURE يجب أن تكون on أو off.');
 
-const CTA_LABEL = env('CTA_LABEL', 'أبغى أبدأ') || 'أبغى أبدأ';
-if (CTA_LABEL.length > 30) errors.push('CTA_LABEL طويل جدًا (الحد 30 حرفًا).');
+const CTA_LABEL = env('CTA_LABEL', 'ابدئي تجهيزاتك بـ99 ريال') || 'ابدئي تجهيزاتك بـ99 ريال';
+if (CTA_LABEL.length > 40) errors.push('CTA_LABEL طويل جدًا (الحد 40 حرفًا).');
+// نص مختصر للأماكن الضيقة (الترويسة والشريط الثابت على الجوال).
+const CTA_SHORT_LABEL = env('CTA_SHORT_LABEL', 'ابدئي الآن') || 'ابدئي الآن';
+if (CTA_SHORT_LABEL.length > 20) errors.push('CTA_SHORT_LABEL طويل جدًا (الحد 20 حرفًا).');
 
 const CHECKOUT_URL = env('LIVE_CHECKOUT_URL');
 if (MODE === 'LIVE_MODE') {
@@ -75,9 +78,14 @@ if (MODE === 'LIVE_MODE') {
     errors.push('LIVE_MODE يحتاج LIVE_CHECKOUT_URL صالحًا يبدأ بـ https://');
   }
 }
-if (LEAD_CAPTURE === 'on' && MODE === 'TEST_MODE' && !env('DATABASE_URL')) {
-  // ليس خطأ قاتلًا في البناء (قد يكون DATABASE_URL مضبوطًا في بيئة التشغيل فقط)، لكن نحذّر.
-  console.warn('⚠️  LEAD_CAPTURE=on لكن DATABASE_URL غير موجود في بيئة البناء. تأكد من ضبطه في Vercel، وإلا سيفشل التسجيل برسالة واضحة.');
+if (MODE === 'TEST_MODE') {
+  // صفحة /prelaunch تعرض النموذج دائمًا في TEST_MODE. بدون هذا الإعداد لن يُحفظ أي تسجيل.
+  // ليس خطأ قاتلًا (قد يكون DATABASE_URL مضبوطًا في بيئة التشغيل فقط)، لكن نحذّر.
+  if (LEAD_CAPTURE !== 'on') {
+    console.warn('⚠️  LEAD_CAPTURE ليس on: نموذج /prelaunch سيظهر لكن التسجيل لن يُحفظ (سيعرض «التسجيل غير متاح حاليًا»). فعّله مع DATABASE_URL عندما تكون جاهزة.');
+  } else if (!env('DATABASE_URL')) {
+    console.warn('⚠️  LEAD_CAPTURE=on لكن DATABASE_URL غير موجود في بيئة البناء. تأكد من ضبطه في Vercel، وإلا سيفشل التسجيل برسالة واضحة.');
+  }
 }
 
 if (errors.length) {
@@ -136,8 +144,12 @@ const ctx = {
   CHECKOUT_URL: isTest ? '' : CHECKOUT_URL,
   LEAD_ENABLED: flags.LEAD ? 'true' : 'false',
   CTA_LABEL,
-  CTA_HREF: isTest ? '#price' : CHECKOUT_URL,
-  CTA_ATTRS_HTML: isTest ? 'role="button" aria-haspopup="dialog"' : 'rel="noopener"',
+  CTA_SHORT_LABEL,
+  // TEST_MODE: صفحة التسجيل قبل الإطلاق. LIVE_MODE: رابط الدفع الحقيقي.
+  CTA_HREF: isTest ? '/prelaunch' : CHECKOUT_URL,
+  CTA_ATTRS_HTML: isTest ? '' : 'rel="noopener"',
+  // في LIVE_MODE لا تُستخدم صفحة التسجيل: نحوّل من يصلها (رابط قديم أو إعلان) إلى الصفحة الرئيسية.
+  PRELAUNCH_HEAD_HTML: isTest ? '' : '<meta http-equiv="refresh" content="0; url=/">',
   ASSET_V: assetVersion(),
   YEAR: String(new Date().getFullYear()),
   // قيم HTML خام (لاحقة _HTML)
@@ -198,5 +210,6 @@ console.log('✅ تم البناء → dist/');
 console.log(`   الوضع:            ${MODE}`);
 console.log(`   Meta Pixel:       ${PIXEL_ID ? 'مفعّل' : 'غير مضبوط'}`);
 console.log(`   Clarity:          ${CLARITY_ID ? 'مفعّل' : 'غير مضبوط'}`);
-console.log(`   تسجيل الاهتمام:   ${flags.LEAD ? 'مفعّل' : 'مخفي'}`);
+console.log(`   زر CTA يقود إلى:  ${isTest ? '/prelaunch (تسجيل قبل الإطلاق، بلا دفع)' : CHECKOUT_URL}`);
+console.log(`   حفظ التسجيل:      ${flags.LEAD ? 'مفعّل (يحتاج DATABASE_URL)' : (isTest ? 'غير مفعّل: التسجيل لن يُحفظ' : 'غير مستخدم في LIVE_MODE')}`);
 console.log(`   فهرسة المحركات:   ${isTest ? 'ممنوعة (noindex)' : 'مسموحة'}`);

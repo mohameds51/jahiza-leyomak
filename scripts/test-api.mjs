@@ -26,7 +26,7 @@ function mkSql(calls, { throwErr } = {}) {
 }
 
 const baseEnv = { LEAD_CAPTURE: 'on', DATABASE_URL: 'postgres://x', SITE_URL: 'https://site.test' };
-const good = { email: '  Sara@Example.COM ', consent: true, company: '' };
+const good = { first_name: '  سارة  ', email: '  Sara@Example.COM ', consent: true, company: '' };
 
 async function call(env, req) {
   const calls = [];
@@ -69,6 +69,7 @@ ok('بدون جسم → 400', r.res.code === 400);
 r = await call(baseEnv, { body: { ...good, company: 'bot' } });
 ok('honeypot معبّأ → 400 ولا إدخال', r.res.code === 400 && r.calls.length === 0);
 
+// البريد
 for (const [label, email] of [
   ['فارغ', ''], ['بدون @', 'abc'], ['بدون نطاق', 'a@b'], ['مسافة داخلية', 'a b@c.com'],
   ['رقم', 123], ['أطول من 254', 'a'.repeat(250) + '@b.com'],
@@ -76,22 +77,54 @@ for (const [label, email] of [
   r = await call(baseEnv, { body: { ...good, email } });
   ok(`بريد غير صالح (${label}) → 400`, r.res.code === 400 && r.calls.length === 0, r.res.body && r.res.body.error);
 }
+
+// الاسم الأول (مطلوب)
+for (const [label, first_name] of [
+  ['غير موجود', undefined], ['فارغ', ''], ['مسافات فقط', '   '], ['رقم', 5],
+  ['أطول من 60', 'س'.repeat(61)], ['يحوي <', 'سا<رة'], ['يحوي رمز تحكم', 'سا\u0000رة'],
+]) {
+  r = await call(baseEnv, { body: { ...good, first_name } });
+  ok(`اسم غير صالح (${label}) → 400 invalid_name`, r.res.code === 400 && r.res.body.error === 'invalid_name' && r.calls.length === 0, r.res.body && r.res.body.error);
+}
+
+// الواتساب (اختياري)
+for (const [label, whatsapp, expected] of [
+  ['غير موجود', undefined, null],
+  ['فارغ', '', null],
+  ['مسافات فقط', '   ', null],
+  ['سعودي محلي', '0551234567', '0551234567'],
+  ['دولي بمسافات وشرطات', '+966 55-123-4567', '+966551234567'],
+  ['أرقام عربية هندية', '٠٥٥ ١٢٣ ٤٥٦٧', '0551234567'],
+  ['بأقواس ونقاط', '(055) 123.4567', '0551234567'],
+]) {
+  r = await call(baseEnv, { body: { ...good, whatsapp } });
+  ok(`واتساب ${label} → يُقبل ويُحفظ كـ ${JSON.stringify(expected)}`, r.res.code === 200 && r.calls[0].vals[2] === expected, r.calls[0] && r.calls[0].vals[2]);
+}
+for (const [label, whatsapp] of [['حروف', 'abc12345678'], ['قصير', '12345'], ['طويل', '1'.repeat(16)], ['رقم JSON', 551234567], ['+ في الوسط', '055+1234567']]) {
+  r = await call(baseEnv, { body: { ...good, whatsapp } });
+  ok(`واتساب غير صالح (${label}) → 400 invalid_whatsapp`, r.res.code === 400 && r.res.body.error === 'invalid_whatsapp' && r.calls.length === 0, r.res.body && r.res.body.error);
+}
+
+// الموافقة
 for (const consent of [false, 'true', 1, undefined]) {
-  r = await call(baseEnv, { body: { email: 'a@b.com', consent } });
+  r = await call(baseEnv, { body: { ...good, consent } });
   ok(`consent=${JSON.stringify(consent)} → 400`, r.res.code === 400 && r.calls.length === 0);
 }
 
 // النجاح
-r = await call(baseEnv, { body: { ...good, utm_source: ' meta ', utm_campaign: 'c'.repeat(300), extra: 'x' } });
+r = await call(baseEnv, { body: { ...good, whatsapp: '0551234567', utm_source: ' meta ', utm_campaign: 'c'.repeat(300), extra: 'x' } });
 ok('نجاح → 200 { ok: true }', r.res.code === 200 && r.res.body.ok === true);
 ok('إدخال واحد فقط', r.calls.length === 1);
 ok('البريد يُنظَّف ويُحوَّل لحروف صغيرة', r.calls[0].vals[0] === 'sara@example.com', r.calls[0].vals[0]);
-ok('utm_source يُقصّ، وutm_campaign ≤ 100 حرف', r.calls[0].vals[1] === 'meta' && r.calls[0].vals[2].length === 100);
-ok('الاستعلام معلَّم (parameterized) والبريد ليس داخل نص SQL',
-  !r.calls[0].text.includes('sara@') && r.calls[0].text.includes('ON CONFLICT (email) DO NOTHING'));
-r = await call(baseEnv, { body: { email: "o'brien@ex.com", consent: true } });
-ok('بريد يحوي علامة اقتباس يمر كمعامل ولا يكسر الاستعلام',
-  r.res.code === 200 && r.calls[0].vals[0] === "o'brien@ex.com" && !r.calls[0].text.includes("o'brien"));
+ok('الاسم يُقصّ من المسافات', r.calls[0].vals[1] === 'سارة', r.calls[0].vals[1]);
+ok('الواتساب في المعامل الثالث', r.calls[0].vals[2] === '0551234567');
+ok('utm_source يُقصّ، وutm_campaign ≤ 100 حرف', r.calls[0].vals[3] === 'meta' && r.calls[0].vals[4].length === 100);
+ok('الاستعلام معلَّم (parameterized): لا بيانات شخصية داخل نص SQL',
+  !r.calls[0].text.includes('sara@') && !r.calls[0].text.includes('سارة') && !r.calls[0].text.includes('0551234567') &&
+  r.calls[0].text.includes('ON CONFLICT (email) DO NOTHING'));
+r = await call(baseEnv, { body: { first_name: "Ann'; DROP TABLE leads;--", email: "o'brien@ex.com", consent: true } });
+ok('اقتباس وSQL في الاسم/البريد تمر كمعاملات ولا تكسر الاستعلام',
+  r.res.code === 200 && r.calls[0].vals[1].includes('DROP TABLE') && !r.calls[0].text.includes('DROP') && !r.calls[0].text.includes("o'brien"));
 
 // الفشل
 const logged = [];
@@ -101,8 +134,8 @@ r = await call(baseEnv, { _sql: { throwErr: true } });
 console.error = origErr;
 ok('فشل قاعدة البيانات → 500 برمز خطأ عام',
   r.res.code === 500 && r.res.body.error === 'server_error' && !JSON.stringify(r.res.body).includes('boom'));
-ok('سجل الخادم لا يحتوي البريد ولا نص الاستثناء',
-  logged.length === 1 && !logged[0].includes('@') && !logged[0].includes('boom'), logged[0]);
+ok('سجل الخادم لا يحتوي بيانات شخصية ولا نص الاستثناء',
+  logged.length === 1 && !logged[0].includes('@') && !logged[0].includes('boom') && !logged[0].includes('سارة'), logged[0]);
 
 console.log(`\napi: ${pass}/${pass + fail} نجحت`);
 process.exit(fail ? 1 : 0);

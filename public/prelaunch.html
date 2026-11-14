@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-mode="{{MODE}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>سجّلي طلبك بسعر الإطلاق | جاهزة ليومك</title>
+  <meta name="description" content="سجّلي طلبك في جاهزة ليومك واحتفظي بسعر الإطلاق الخاص 99 ريال سعودي. لن يتم تحصيل أي مبلغ حاليًا.">
+  <meta name="theme-color" content="#F8F3EC">
+  <meta name="robots" content="noindex, nofollow">
+  {{PRELAUNCH_HEAD_HTML}}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/app.css?v={{ASSET_V}}">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-prelaunch">
+  <div id="site-config" hidden
+       data-mode="{{MODE}}"
+       data-pixel-id="{{PIXEL_ID}}"
+       data-clarity-id="{{CLARITY_ID}}"
+       data-lead-enabled="{{LEAD_ENABLED}}"
+       data-checkout-url="{{CHECKOUT_URL}}"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5l7 2.8v5.4c0 4.3-2.9 7.6-7 8.8-4.1-1.2-7-4.5-7-8.8V6.3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2.2 2.2L15.2 10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__in">
+      <a class="brand" href="/" aria-label="جاهزة ليومك — الصفحة الرئيسية">
+        <svg class="brand__mark" width="26" height="26" aria-hidden="true"><use href="#i-heart"/></svg>
+        <span class="brand__name">جاهزة ليومك</span>
+      </a>
+      <a class="btn btn-ghost btn-sm" href="/">الصفحة الرئيسية</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap wrap--narrow prelaunch">
+    <div class="prelaunch__card">
+      <svg class="prelaunch__icon" width="44" height="44" aria-hidden="true"><use href="#i-heart"/></svg>
+      <h1>جاهزة ليومك قريبًا بين يديك!</h1>
+      <p class="prelaunch__lead">المنتج هيكون جاهز خلال 3 أيام. سجّلي طلبك الآن واحتفظي بسعر الإطلاق الخاص.</p>
+
+      <div class="launch-price">
+        <p class="launch-price__label">سعر الإطلاق: <strong>99 ريال سعودي</strong></p>
+        <p class="launch-price__old">بدلًا من <del>199 ريال</del></p>
+      </div>
+
+      <p class="status-note status-note--center">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-shield"/></svg>
+        <span><strong>لن يتم تحصيل أي مبلغ حاليًا.</strong> التسجيل لا يتطلب أي دفع.</span>
+      </p>
+
+      <div id="lead-wrap">
+        <form id="lead-form" novalidate data-clarity-mask="True" data-state="idle">
+          <div class="field">
+            <label for="lead-name">الاسم الأول</label>
+            <input id="lead-name" name="first_name" type="text" autocomplete="given-name" maxlength="60" required>
+          </div>
+          <div class="field">
+            <label for="lead-email">البريد الإلكتروني</label>
+            <input id="lead-email" name="email" type="email" inputmode="email" autocomplete="email" dir="ltr" placeholder="name@example.com" maxlength="254" required>
+          </div>
+          <div class="field">
+            <label for="lead-whatsapp">رقم الواتساب <span class="opt">(اختياري)</span></label>
+            <input id="lead-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="05xxxxxxxx" maxlength="20">
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="lead-company">اتركي هذا الحقل فارغًا</label>
+            <input id="lead-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <label class="check">
+            <input id="lead-consent" name="consent" type="checkbox" required>
+            <span>أوافق على استخدام بياناتي لإبلاغي عند جاهزية المنتج فقط، وعلى التواصل عبر واتساب إن أدخلتُ رقمي. <a href="/privacy" target="_blank" rel="noopener">سياسة الخصوصية</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="lead-submit">سجّلي طلبي بسعر الإطلاق</button>
+          <p class="form-status" id="lead-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="lead-success" id="lead-success" role="status" hidden>
+        <svg width="26" height="26" aria-hidden="true"><use href="#i-check"/></svg>
+        <p><strong>تم تسجيل طلبك بسعر الإطلاق.</strong></p>
+        <p>سنبلغك فور جاهزية المنتج. لم يتم تحصيل أي مبلغ.</p>
+        <a class="btn btn-ghost" href="/">العودة للصفحة الرئيسية</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="site-footer__links">
+        <a href="/privacy">سياسة الخصوصية</a>
+        <!--[TRACKING]--><button type="button" class="linklike" id="privacy-settings">إعدادات التتبع</button><!--[/TRACKING]-->
+      </p>
+      <p class="site-footer__copy">© {{YEAR}} جاهزة ليومك</p>
+    </div>
+  </footer>
+
+  <!--[TRACKING]-->
+  <div class="consent" id="consent" role="region" aria-label="الموافقة على أدوات التحليل" hidden>
+    <p>نستخدم أدوات تحليل (Meta Pixel وMicrosoft Clarity) لقياس زيارات الصفحة وتحسين التجربة، ولا تعمل إلا بموافقتك. <a href="/privacy">التفاصيل</a></p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn-primary btn-sm" id="consent-accept">أوافق</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="consent-deny">لا أوافق</button>
+    </div>
+  </div>
+  <!--[/TRACKING]-->
+
+  <script src="/assets/tracker.js?v={{ASSET_V}}" defer></script>
+  <script src="/assets/app.js?v={{ASSET_V}}" defer></script>
+</body>
+</html>
