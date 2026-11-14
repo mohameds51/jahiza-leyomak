@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-mode="{{MODE}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>جاهزة ليومك | برنامج تجهيز العروس في آخر 30 يومًا</title>
+  <meta name="description" content="خطة شخصية وروتين عناية وأدوات تنظيم ومتابعة لآخر 30 يومًا قبل الزفاف. 99 ريال سعودي.">
+  <meta name="theme-color" content="#F8F3EC">
+  {{ROBOTS_HTML}}
+  {{OG_TAGS_HTML}}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/images/hero-800.webp"
+        imagesrcset="/images/hero-480.webp 480w, /images/hero-800.webp 800w, /images/hero-1080.webp 1080w"
+        imagesizes="(min-width: 900px) 540px, calc(100vw - 32px)" fetchpriority="high">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/assets/app.css?v={{ASSET_V}}">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <!-- إعدادات عامة غير سرية تُحقن وقت البناء -->
+  <div id="site-config" hidden
+       data-mode="{{MODE}}"
+       data-pixel-id="{{PIXEL_ID}}"
+       data-clarity-id="{{CLARITY_ID}}"
+       data-lead-enabled="{{LEAD_ENABLED}}"
+       data-checkout-url="{{CHECKOUT_URL}}"></div>
+
+  <!-- أيقونات -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-5 4v-4H4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 10.5h16M9 3.5v4M15 3.5v4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-stack" viewBox="0 0 24 24"><path d="M12 4l8 4-8 4-8-4zM4 12l8 4 8-4M4 16l8 4 8-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 8h9M17 8h3M4 16h3M11 16h9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="15" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="9" cy="16" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__in">
+      <a class="brand" href="/" aria-label="جاهزة ليومك — الصفحة الرئيسية">
+        <svg class="brand__mark" width="26" height="26" aria-hidden="true"><use href="#i-heart"/></svg>
+        <span class="brand__name">جاهزة ليومك</span>
+      </a>
+      <a class="btn btn-primary btn-sm" data-cta data-cta-pos="header" href="{{CTA_HREF}}" {{CTA_ATTRS_HTML}}>{{CTA_LABEL}}</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1) Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow">برنامج تجهيز العروس الشخصي · آخر 30 يومًا قبل الزفاف</p>
+          <h1 id="hero-title">عرسك قرب؟ خلي آخر 30 يوم تجهيز وتنظيم بدل التشتت.</h1>
+          <p class="lead">جاهزة ليومك يساعدك ترتبين استعداداتك بخطة شخصية، وروتين عناية منظم، وأدوات عملية تتابعين فيها تفاصيلك قبل الزفاف.</p>
+
+          <div class="hero__buy">
+            <p class="price-tag"><span class="price-tag__num">99</span> <span class="price-tag__cur">ريال سعودي</span> <span class="price-tag__note">· منتج رقمي</span></p>
+            <a class="btn btn-primary btn-lg" id="hero-cta" data-cta data-cta-pos="hero" href="{{CTA_HREF}}" {{CTA_ATTRS_HTML}}>{{CTA_LABEL}}</a>
+          </div>
+          <!--[TEST]--><p class="status-note"><svg width="18" height="18" aria-hidden="true"><use href="#i-clock"/></svg> البرنامج قيد التجهيز حاليًا، ولا يوجد دفع في هذه المرحلة.</p><!--[/TEST]-->
+
+          <ul class="chips" aria-label="مميزات سريعة">
+            <li>5 أدوات عملية</li>
+            <li>خطة حسب موعد زفافك</li>
+            <li>مصمم للجوال والكمبيوتر</li>
+          </ul>
+        </div>
+
+        <figure class="hero__visual">
+          <img src="/images/hero-800.webp"
+               srcset="/images/hero-480.webp 480w, /images/hero-800.webp 800w, /images/hero-1080.webp 1080w"
+               sizes="(min-width: 900px) 540px, calc(100vw - 32px)"
+               width="1080" height="609" fetchpriority="high" decoding="async"
+               alt="تصوّر لواجهة خطة الـ30 يوم على الجوال والكمبيوتر: قائمة مهام الأسبوع وشريط تقدم الخطة">
+          <figcaption>تصوّر توضيحي لواجهة الأدوات</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2) المشكلة -->
+    <section class="section section--white" id="problem" aria-labelledby="problem-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">آخر شهر قبل الزفاف</p>
+          <h2 id="problem-title">تفاصيل كثيرة ووقت أقل</h2>
+          <p class="section-sub">لو حسّيتي بشي من هذا، فأنتِ مو لحالك.</p>
+        </header>
+
+        <ul class="problem-grid">
+          <li class="card reveal">
+            <svg class="card__icon" width="34" height="34" aria-hidden="true"><use href="#i-chat"/></svg>
+            <h3>نصايح من كل مكان</h3>
+            <p>مقاطع ورسائل وتجارب صديقات، وكل مصدر يقول شي مختلف.</p>
+          </li>
+          <li class="card reveal">
+            <svg class="card__icon" width="34" height="34" aria-hidden="true"><use href="#i-list"/></svg>
+            <h3>وش أسوي أول؟</h3>
+            <p>كل شي يبان مهم، وما تدرين من وين تبدين ولا وش يقدر ينتظر.</p>
+          </li>
+          <li class="card reveal">
+            <svg class="card__icon" width="34" height="34" aria-hidden="true"><use href="#i-calendar"/></svg>
+            <h3>موعد أو تجهيز يفوتك</h3>
+            <p>تجربة مكياج، حجز صالون، غرض ناقص… التفاصيل كثيرة والذاكرة وحدها ما تكفي.</p>
+          </li>
+          <li class="card reveal">
+            <svg class="card__icon" width="34" height="34" aria-hidden="true"><use href="#i-clock"/></svg>
+            <h3>روتين ما يناسب وقتك</h3>
+            <p>روتين مرتب على الورق، بس وقتك الفعلي أضيق منه.</p>
+          </li>
+          <li class="card reveal">
+            <svg class="card__icon" width="34" height="34" aria-hidden="true"><use href="#i-stack"/></svg>
+            <h3>انشغال بالتفاصيل</h3>
+            <p>وبدل ما تستمتعين بالأيام الأخيرة، راسك مشغول بالقوائم.</p>
+          </li>
+        </ul>
+
+        <p class="closing-line reveal">الموضوع مو تقصير منك، التجهيز بس يحتاج ترتيب يناسبك.</p>
+      </div>
+    </section>
+
+    <!-- 3) الحل -->
+    <section class="section" id="solution" aria-labelledby="solution-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">الحل</p>
+          <h2 id="solution-title">كل استعداداتك في مكان واحد</h2>
+          <p class="section-sub">«جاهزة ليومك» حقيبة رقمية تجمع تجهيزاتك الشخصية بدل ما تكون موزعة بين ملاحظات ورسائل ومقاطع، بأدوات تقدرين تخصصينها وتتابعين فيها تقدمك.</p>
+        </header>
+
+        <ol class="benefits">
+          <li class="reveal">
+            <span class="benefits__icon"><svg width="30" height="30" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+            <h3>تنظيم حسب موعد الزفاف</h3>
+            <p>تبنين خطتك على الأيام اللي باقية لك، بدل جدول عام ما يعرف موعدك.</p>
+          </li>
+          <li class="reveal">
+            <span class="benefits__icon"><svg width="30" height="30" aria-hidden="true"><use href="#i-sliders"/></svg></span>
+            <h3>أولوياتك ووقتك أنتِ</h3>
+            <p>تحددين وش الأهم لك وكم وقت تقدرين تعطين يوميًا، والخطة تمشي على هذا.</p>
+          </li>
+          <li class="reveal">
+            <span class="benefits__icon"><svg width="30" height="30" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <h3>متابعة سهلة</h3>
+            <p>علّمي على اللي خلّصتيه، وشوفي المتبقي من تجهيزاتك بنظرة وحدة.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4) الأدوات الخمس -->
+    <section class="section section--white" id="tools" aria-labelledby="tools-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">داخل الحقيبة</p>
+          <h2 id="tools-title">5 أدوات في حقيبة وحدة</h2>
+          <p class="section-sub">كل أداة تغطي جانب من التجهيز، وتستخدمين منها اللي يناسب أولوياتك.</p>
+          <p class="note">الصور تصوّر توضيحي لواجهة الأدوات، والتفاصيل النهائية قد تختلف عند الإطلاق.</p>
+        </header>
+
+        <article class="tool reveal" aria-labelledby="tool-1-title">
+          <div class="tool__media">
+            <img src="/images/tool-1-plan-800.webp"
+                 srcset="/images/tool-1-plan-480.webp 480w, /images/tool-1-plan-800.webp 800w, /images/tool-1-plan-1080.webp 1080w"
+                 sizes="(min-width: 860px) 480px, calc(100vw - 32px)"
+                 width="1080" height="1182" loading="lazy" decoding="async"
+                 alt="تصوّر لأداة صانعة خطة الـ30 يوم: شاشة جوال لإنشاء الخطة في 3 خطوات، وشاشة كمبيوتر بمهام الأسبوع وشريط تقدم الخطة">
+          </div>
+          <div class="tool__body">
+            <p class="badge">الأداة الأولى</p>
+            <h3 id="tool-1-title">صانعة خطة الـ30 يوم</h3>
+            <p>تنشئين خطة تجهيز شخصية حسب موعد زفافك والوقت المتاح لك وأولوياتك، مع مهام يومية ومتابعة للإنجاز.</p>
+            <ul class="ticks">
+              <li>خطة تتبع موعد زفافك</li>
+              <li>مهام يومية واضحة</li>
+              <li>متابعة إنجازك أول بأول</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tool reveal" aria-labelledby="tool-2-title">
+          <div class="tool__media">
+            <img src="/images/tool-2-routine-800.webp"
+                 srcset="/images/tool-2-routine-480.webp 480w, /images/tool-2-routine-800.webp 800w, /images/tool-2-routine-1080.webp 1080w"
+                 sizes="(min-width: 860px) 480px, calc(100vw - 32px)"
+                 width="1080" height="1182" loading="lazy" decoding="async"
+                 alt="تصوّر لأداة روتين العناية قبل الزفاف: روتين أسبوعي مقسم إلى العناية بالشعر والبشرة والجسم">
+          </div>
+          <div class="tool__body">
+            <p class="badge">الأداة الثانية</p>
+            <h3 id="tool-2-title">روتين العناية قبل الزفاف</h3>
+            <p>قوائم وروتينات منظمة للعناية بالبشرة والشعر والجسم، بخطوات تقدرين تتابعينها يوم بيوم.</p>
+            <ul class="ticks">
+              <li>قوائم للبشرة والشعر والجسم</li>
+              <li>خطوات قابلة للمتابعة</li>
+              <li>روتين مرتب بدل نصايح متفرقة</li>
+            </ul>
+            <p class="note">روتين تنظيمي، ولا يعد بنتائج تجميلية مضمونة.</p>
+          </div>
+        </article>
+
+        <article class="tool reveal" aria-labelledby="tool-3-title">
+          <div class="tool__media">
+            <img src="/images/tool-3-looks-800.webp"
+                 srcset="/images/tool-3-looks-480.webp 480w, /images/tool-3-looks-800.webp 800w, /images/tool-3-looks-1080.webp 1080w"
+                 sizes="(min-width: 860px) 480px, calc(100vw - 32px)"
+                 width="1080" height="1182" loading="lazy" decoding="async"
+                 alt="تصوّر لأداة منظم تجارب الإطلالة: جدول مواعيد التجارب وملاحظات الاختيارات">
+          </div>
+          <div class="tool__body">
+            <p class="badge">الأداة الثالثة</p>
+            <h3 id="tool-3-title">منظم تجارب الإطلالة</h3>
+            <p>تنظمين تجارب المكياج والشعر ومواعيدها، وتحفظين الصور المرجعية وملاحظاتك واختياراتك في مكان واحد.</p>
+            <ul class="ticks">
+              <li>تجارب المكياج والشعر</li>
+              <li>مواعيد التجارب</li>
+              <li>صور مرجعية وملاحظات واختيارات</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tool reveal" aria-labelledby="tool-4-title">
+          <div class="tool__media">
+            <img src="/images/tool-4-bag-800.webp"
+                 srcset="/images/tool-4-bag-480.webp 480w, /images/tool-4-bag-800.webp 800w, /images/tool-4-bag-1080.webp 1080w"
+                 sizes="(min-width: 860px) 480px, calc(100vw - 32px)"
+                 width="1080" height="1182" loading="lazy" decoding="async"
+                 alt="تصوّر لأداة حقيبة يوم الزفاف: قائمة تجهيز بمستلزمات الجمال والإكسسوارات ومتابعة التحضيرات">
+          </div>
+          <div class="tool__body">
+            <p class="badge">الأداة الرابعة</p>
+            <h3 id="tool-4-title">حقيبة يوم الزفاف</h3>
+            <p>قوائم لمستلزمات يوم الزفاف ومواعيده ومهامه الأساسية، مع متابعة لما تم إنجازه.</p>
+            <ul class="ticks">
+              <li>قوائم مستلزمات يوم الزفاف</li>
+              <li>المواعيد والمهام الأساسية</li>
+              <li>متابعة ما تم إنجازه</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tool reveal" aria-labelledby="tool-5-title">
+          <div class="tool__media">
+            <img src="/images/tool-5-mindful-800.webp"
+                 srcset="/images/tool-5-mindful-480.webp 480w, /images/tool-5-mindful-800.webp 800w, /images/tool-5-mindful-1080.webp 1080w"
+                 sizes="(min-width: 860px) 480px, calc(100vw - 32px)"
+                 width="1080" height="1182" loading="lazy" decoding="async"
+                 alt="تصوّر لأداة الاستعداد النفسي والتواصل: أقسام الأداة من تمارين الاسترخاء وتنظيم الأولويات والتواصل">
+          </div>
+          <div class="tool__body">
+            <p class="badge">الأداة الخامسة</p>
+            <h3 id="tool-5-title">الاستعداد النفسي والتواصل</h3>
+            <p>تمارين بسيطة للاسترخاء، وتنظيم للأولويات، وتعبير عن احتياجاتك والتواصل بوضوح.</p>
+            <ul class="ticks">
+              <li>تمارين استرخاء بسيطة</li>
+              <li>تنظيم الأولويات</li>
+              <li>تواصل أوضح عن احتياجاتك</li>
+            </ul>
+            <p class="note">محتوى تنظيمي عام، وليس بديلًا عن استشارة مختصة.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5) المقارنة -->
+    <section class="section" id="compare" aria-labelledby="compare-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">مقارنة بسيطة</p>
+          <h2 id="compare-title">لماذا يختلف عن الجداول التقليدية؟</h2>
+          <p class="section-sub">الجداول الجاهزة خيار بسيط ويناسب من تبغى نقطة بداية سريعة. «جاهزة ليومك» لمن تفضل خطة تتبع وقتها وأولوياتها.</p>
+        </header>
+
+        <div class="compare">
+          <div class="compare__col reveal">
+            <h3>الجداول الثابتة</h3>
+            <ul class="dashes">
+              <li><svg width="22" height="22" aria-hidden="true"><use href="#i-minus"/></svg> محتوى عام</li>
+              <li><svg width="22" height="22" aria-hidden="true"><use href="#i-minus"/></svg> خطوات متشابهة للجميع</li>
+              <li><svg width="22" height="22" aria-hidden="true"><use href="#i-minus"/></svg> متابعة محدودة</li>
+            </ul>
+          </div>
+          <div class="compare__col compare__col--us reveal">
+            <h3>جاهزة ليومك</h3>
+            <ul class="ticks">
+              <li>خطة تتناسب مع مدخلاتك</li>
+              <li>أدوات تنظيم تفاعلية</li>
+              <li>متابعة المهام والتقدم</li>
+              <li>جميع التجهيزات الشخصية في مكان واحد</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) كيف يعمل -->
+    <section class="section section--white" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">ثلاث خطوات</p>
+          <h2 id="how-title">كيف يعمل؟</h2>
+        </header>
+
+        <ol class="steps">
+          <li class="card reveal">
+            <span class="steps__num" aria-hidden="true">1</span>
+            <h3>حددي موعد زفافك وأولوياتك</h3>
+            <p>اكتبي كم باقي على زفافك، والوقت اللي تقدرين تعطينه يوميًا، وش الأهم لك.</p>
+          </li>
+          <li class="card reveal">
+            <span class="steps__num" aria-hidden="true">2</span>
+            <h3>أنشئي خطتك الشخصية</h3>
+            <p>مدخلاتك تتحول إلى خطة بمهام يومية موزعة على الأيام.</p>
+          </li>
+          <li class="card reveal">
+            <span class="steps__num" aria-hidden="true">3</span>
+            <h3>تابعي تجهيزاتك خطوة بخطوة</h3>
+            <p>علّمي على اللي خلّصتيه، وشوفي وين وصلتي.</p>
+          </li>
+        </ol>
+        <!--[TEST]--><p class="note note--center reveal">هذه الخطوات تصف تجربة البرنامج المستهدفة عند الإطلاق، وليست متاحة حاليًا.</p><!--[/TEST]-->
+      </div>
+    </section>
+
+    <!-- 7) السعر والعرض -->
+    <section class="section" id="price" aria-labelledby="price-title">
+      <div class="wrap">
+        <div class="price-card reveal">
+          <p class="eyebrow">العرض</p>
+          <h2 id="price-title">حقيبة «جاهزة ليومك» بأدواتها الخمس</h2>
+          <p class="price-card__price"><span class="price-card__num">99</span> <span class="price-card__cur">ريال سعودي</span></p>
+          <p class="price-card__sub">منتج رقمي، لا يتضمن شحنًا.</p>
+
+          <h3 class="price-card__list-title"><!--[TEST]-->ما الذي ستحصلين عليه عند الإطلاق<!--[/TEST]--><!--[LIVE]-->ماذا تشمل الحقيبة؟<!--[/LIVE]--></h3>
+          <ul class="ticks ticks--wide">
+            <li>صانعة خطة الـ30 يوم</li>
+            <li>روتين العناية قبل الزفاف</li>
+            <li>منظم تجارب الإطلالة</li>
+            <li>حقيبة يوم الزفاف</li>
+            <li>الاستعداد النفسي والتواصل</li>
+          </ul>
+
+          <a class="btn btn-primary btn-lg btn-block" data-cta data-cta-pos="price" href="{{CTA_HREF}}" {{CTA_ATTRS_HTML}}>{{CTA_LABEL}}</a>
+          <!--[TEST]--><p class="status-note status-note--center"><svg width="18" height="18" aria-hidden="true"><use href="#i-clock"/></svg> قيد التجهيز حاليًا. لا يوجد دفع في هذه المرحلة، وتفاصيل التسليم تُعلن عند الإطلاق.</p><!--[/TEST]-->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8) الأسئلة الشائعة -->
+    <section class="section section--white" id="faq" aria-labelledby="faq-title">
+      <div class="wrap wrap--narrow">
+        <header class="section-head reveal">
+          <p class="eyebrow">أسئلة شائعة</p>
+          <h2 id="faq-title">عندك سؤال؟</h2>
+        </header>
+
+        <div class="faq">
+          <details>
+            <summary>هل البرنامج مناسب إذا تبقى على زفافي شهران؟</summary>
+            <p>البرنامج مبني حول آخر 30 يومًا قبل الزفاف. إذا باقي لك شهران، تقدرين تستفيدين من أدوات مثل روتين العناية ومنظم تجارب الإطلالة وحقيبة يوم الزفاف من الحين وترتبين تجاربك وتجهيزاتك بدري، وتستخدمين خطة الـ30 يوم لما يقرب موعدك.</p>
+          </details>
+          <details>
+            <summary>هل أحتاج إلى استخدام جميع الأدوات؟</summary>
+            <p>لا، ما تحتاجين تستخدمينها كلها. اختاري اللي يناسب أولوياتك ووقتك، والباقي يكون عندك لو احتجتيه.</p>
+          </details>
+          <details>
+            <summary>هل أستطيع تعديل أولوياتي؟</summary>
+            <p>البرنامج مصمم ليمشي على أولوياتك ووقتك المتاح، وتحديدها وتعديلها جزء من فكرته.</p>
+          </details>
+          <details>
+            <summary>هل البرنامج مناسب للاستخدام من الجوال؟</summary>
+            <p>نعم، تصميمه موجه ليكون مريح على الجوال وعلى الكمبيوتر.</p>
+          </details>
+          <details>
+            <summary>هل هو كتاب PDF أم أدوات تفاعلية؟</summary>
+            <p>هو حقيبة رقمية عملية من خمس أدوات للتخطيط والتنظيم والمتابعة، مو مجرد كتاب PDF ولا جدول ثابت.<!--[TEST]--> تفاصيل طريقة الوصول للأدوات تُعلن عند الإطلاق.<!--[/TEST]--></p>
+          </details>
+          <details>
+            <summary>هل يضمن البرنامج نتائج تجميلية أو نفسية معينة؟</summary>
+            <p>لا. هو أدوات تنظيم ومتابعة تساعدك ترتبين تجهيزاتك، وما يعد بنتائج محددة، وما يغني عن استشارة مختصة.</p>
+          </details>
+          <!--[TEST]-->
+          <details>
+            <summary>متى يكون البرنامج متاحًا؟</summary>
+            <p>البرنامج قيد التجهيز حاليًا ولم يُعلن موعد الإطلاق بعد. تقدرين تضغطين على «{{CTA_LABEL}}» وتسجلين اهتمامك إذا حبيتي نبلغك عند الإطلاق.</p>
+          </details>
+          <!--[/TEST]-->
+        </div>
+      </div>
+    </section>
+
+    <!-- 9) CTA نهائي -->
+    <section class="final-cta" id="final" aria-labelledby="final-title">
+      <div class="wrap final-cta__in reveal">
+        <h2 id="final-title">استعداداتك تستاهل خطة واضحة.</h2>
+        <p>حقيبة «جاهزة ليومك» بأدواتها الخمس للتخطيط والتنظيم والمتابعة، بـ99 ريال سعودي.</p>
+        <a class="btn btn-light btn-lg" data-cta data-cta-pos="final" href="{{CTA_HREF}}" {{CTA_ATTRS_HTML}}>{{CTA_LABEL}}</a>
+        <!--[TEST]--><p class="final-cta__note">قيد التجهيز حاليًا، ولا يوجد دفع في هذه المرحلة.</p><!--[/TEST]-->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="site-footer__brand">جاهزة ليومك</p>
+      <p class="site-footer__legal">محتوى البرنامج تنظيمي عام، وليس بديلًا عن استشارة مختصة، ولا يضمن نتائج تجميلية أو نفسية معينة.</p>
+      <p class="site-footer__links">
+        <a href="/privacy">سياسة الخصوصية</a>
+        <!--[TRACKING]--><button type="button" class="linklike" id="privacy-settings">إعدادات التتبع</button><!--[/TRACKING]-->
+      </p>
+      <p class="site-footer__copy">© {{YEAR}} جاهزة ليومك</p>
+    </div>
+  </footer>
+
+  <!-- شريط CTA ثابت على الجوال -->
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+    <p class="sticky-cta__price"><strong>99</strong> ريال سعودي</p>
+    <a class="btn btn-primary" data-cta data-cta-pos="sticky" tabindex="-1" href="{{CTA_HREF}}" {{CTA_ATTRS_HTML}}>{{CTA_LABEL}}</a>
+  </div>
+
+  <!--[TRACKING]-->
+  <!-- إشعار الموافقة على التتبع: يظهر فقط إذا تم ضبط Pixel أو Clarity -->
+  <div class="consent" id="consent" role="region" aria-label="الموافقة على أدوات التحليل" hidden>
+    <p>نستخدم أدوات تحليل (Meta Pixel وMicrosoft Clarity) لقياس زيارات الصفحة وتحسين التجربة، ولا تعمل إلا بموافقتك. <a href="/privacy">التفاصيل</a></p>
+    <div class="consent__actions">
+      <button type="button" class="btn btn-primary btn-sm" id="consent-accept">أوافق</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="consent-deny">لا أوافق</button>
+    </div>
+  </div>
+  <!--[/TRACKING]-->
+
+  <!--[TEST]-->
+  <dialog class="dialog" id="preorder" aria-labelledby="dlg-title">
+    <div class="dialog__in">
+      <button type="button" class="dialog__close" data-close aria-label="إغلاق">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <svg class="dialog__icon" width="40" height="40" aria-hidden="true"><use href="#i-heart"/></svg>
+      <h2 id="dlg-title">البرنامج قيد التجهيز</h2>
+      <p>شكرًا لاهتمامك بـ«جاهزة ليومك». ما زلنا نجهّز الأدوات، ولا يوجد دفع أو شراء حاليًا.</p>
+
+      <!--[LEAD]-->
+      <div id="lead-wrap">
+        <p>تبغين نبلغك أول ما يبدأ الإطلاق؟ اتركي بريدك الإلكتروني (اختياري).</p>
+        <form id="lead-form" novalidate data-clarity-mask="True" data-state="idle">
+          <label for="lead-email">البريد الإلكتروني</label>
+          <input id="lead-email" name="email" type="email" inputmode="email" autocomplete="email" dir="ltr" placeholder="name@example.com" maxlength="254" required>
+          <div class="hp" aria-hidden="true">
+            <label for="lead-company">اتركي هذا الحقل فارغًا</label>
+            <input id="lead-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <label class="check">
+            <input id="lead-consent" name="consent" type="checkbox" required>
+            <span>أوافق على استخدام بريدي الإلكتروني لإبلاغي عند الإطلاق فقط. <a href="/privacy" target="_blank" rel="noopener">سياسة الخصوصية</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary btn-block" id="lead-submit">أبلغوني عند الإطلاق</button>
+          <p class="form-status" id="lead-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <p class="lead-success" id="lead-success" role="status" hidden>
+        <svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg>
+        تم تسجيل اهتمامك. بنخبرك عند الإطلاق.
+      </p>
+      <!--[/LEAD]-->
+
+      <button type="button" class="btn btn-ghost btn-block" data-close>إغلاق</button>
+    </div>
+  </dialog>
+  <!--[/TEST]-->
+
+  <script src="/assets/tracker.js?v={{ASSET_V}}" defer></script>
+  <script src="/assets/app.js?v={{ASSET_V}}" defer></script>
+</body>
+</html>
